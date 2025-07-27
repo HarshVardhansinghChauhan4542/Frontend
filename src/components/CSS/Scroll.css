@@ -1,0 +1,23 @@
+#scrollDown{
+    background-color: var(--bg-color);
+    position: relative;
+    margin-top: 40px;
+    position: absolute;
+    right: 0;
+    padding-right: 5vh;
+    font-size: 1.5em;
+    font-weight: 10;
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .bounding {
+    overflow: hidden;
+  }
+  
+  .scroll-anim {
+    display: inline-block;
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  
