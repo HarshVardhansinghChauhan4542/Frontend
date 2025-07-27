@@ -1,75 +1,63 @@
 #aboutContainer {
-    margin-top: 12vh;
-    width: 100%;
-    height: 40vh;
-    background-color: var(--bg-color);
-    position: relative;
-    transition: background-color 0.3s ease;
+  margin-top: 12vh;
+  width: 100%;
+  height: 40vh;
+  background-color: var(--bg-color);
+  position: relative;
+  transition: background-color 0.3s ease;
 }
 
-#AboutText{
-    background-color: var(--bg-color);
-    margin-left: 40%;
-    height:100%;
-    padding-top: 5vh;
-    line-height: 1;
-    padding-left: 8vh;
-    position: relative;
-    color: var(--text-color);
-    transition: background-color 0.3s ease, color 0.3s ease;
+#AboutText {
+  background-color: var(--bg-color);
+  margin-left: 40%;
+  height: 100%;
+  padding-top: 5vh;
+  line-height: 1;
+  padding-left: 8vh;
+  position: relative;
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-#AboutText h5{
+#AboutText h5 {
   font-size: 1.5em;
   font-family: "Open Sauce one Medium";
   font-weight: 10;
 }
 
-#AboutText h5#Description{
+#AboutText h5#Description {
   font-size: 1.2em;
   font-family: "Open Sauce one Medium";
   font-weight: 10;
 }
 
-#AboutText h1{
+#AboutText h1 {
   font-size: 5.5rem;
   line-height: 1;
 }
 
-#VideoPart video{
-    /* background-color: rgb(255, 0, 0); */
-    height: 300px;
-    width: 300px;
-    margin-left: 30px;
-    margin-top: 40px;
-    gap: 20px;
-    position: absolute;
+#VideoPart video {
+  height: 300px;
+  width: 300px;
+  margin-left: 30px;
+  margin-top: 40px;
+  gap: 20px;
+  position: absolute;
 }
 
 #VideoPart h4 {
   position: absolute;
-  color: var(--text-color); 
+  color: var(--text-color);
   font-size: 1rem;
   margin-left: 30px;
   margin-top: 80px;
   transition: color 0.3s ease;
 }
 
-#VideoPart h4 i{
-    font-size: 0.9rem;
-    transform: rotate(90deg);
-    display: inline-block;
-}
-
-
-.fullscreen-modal {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.85);
-  z-index: 10000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+#VideoPart h4 i {
+  font-size: 0.9rem;
+  transform: rotate(90deg);
+  display: inline-block;
 }
 
 .video-box {
@@ -90,7 +78,6 @@
   object-fit: contain;
 }
 
-
 .bounding {
   overflow: hidden;
 }
@@ -99,4 +86,49 @@
   display: inline-block;
   transform: translateY(100%);
   opacity: 0;
+}
+
+@media (max-width: 768px) {
+  #aboutContainer {
+    position: absolute;
+    padding: 1.5vh 4vw;
+    margin-top: 10vh;
+    width: 100%;
+    height: 40vh;
+    transition: background-color 0.3s ease;
+    overflow: hidden;
+  }
+
+  #AboutText {
+    position: relative;
+    width: 70%;
+    margin-left: 40%;
+    padding-left: 0;
+    margin-top: -60px;
+  }
+
+  #AboutText h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+  }
+
+  #AboutText h5,
+  #AboutText h5#Description {
+    font-size: 1.3rem;
+  }
+
+  #VideoPart video {
+    margin-top: -50px;
+    margin-left: -6px;
+    height: 250px;
+    width: 250px;
+  }
+
+  #VideoPart h4 {
+    position: relative;
+    margin-left: -1px;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+  }
 }

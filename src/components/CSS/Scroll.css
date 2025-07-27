@@ -1,23 +1,34 @@
-#scrollDown{
-    background-color: var(--bg-color);
-    position: relative;
-    margin-top: 40px;
-    position: absolute;
-    right: 0;
-    padding-right: 5vh;
-    font-size: 1.5em;
-    font-weight: 10;
-    color: var(--text-color);
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
+#scrollDown {
+  background-color: var(--bg-color);
+  position: absolute;
+  right: 0;
+  padding-right: 5vh;
+  font-size: 1.5em;
+  font-weight: 10;
+  color: var(--text-color);
+  margin-top: 40px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-  .bounding {
-    overflow: hidden;
+.bounding {
+  overflow: hidden;
+}
+
+.scroll-anim {
+  display: inline-block;
+  transform: translateY(30px);
+  opacity: 0;
+}
+
+/* ✅ Mobile View Adjustment */
+@media (max-width: 768px) {
+  #scrollDown {
+    bottom: 20px;
+    right: 20px;
+    top: unset;
+    margin-top: 0;
+    padding-right: 0;
+    position: fixed; /* ensures it stays in bottom-right regardless of scroll */
+    z-index: 9999;
   }
-  
-  .scroll-anim {
-    display: inline-block;
-    transform: translateY(30px);
-    opacity: 0;
-  }
-  
+}

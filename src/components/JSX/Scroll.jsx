@@ -1,17 +1,3 @@
-// import React from 'react';
-
-// const Scroll = () => {
-//     return (
-//         <div id="scrollDown">
-//             <h5>(Scroll)</h5>
-//         </div>
-//     );
-// };
-
-
-// export default Scroll;
-
-
 import React, { useEffect } from 'react';
 import gsap from 'gsap';
 
