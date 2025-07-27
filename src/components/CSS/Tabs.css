@@ -1,60 +1,85 @@
 #TabsContainer {
-    width: 100%;
-    height: 30vh;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    align-items: center;
-    background-color: var(--bg-color);
-    transition: background-color 0.3s ease;
-  }
-  
-  #scroller {
-    display: flex;
-    flex-direction: row;
-    gap: 40px;
-    overflow-x: scroll;
-    scroll-behavior: auto;
-    scrollbar-width: none;
-  }
-  
-  #scroller::-webkit-scrollbar {
-    display: none;
-  }
-  
-  .image-wrapper {
-    width: 300px;
-    flex-shrink: 0;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .image-wrapper img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    transition: transform 0.4s ease-in-out;
-    cursor: pointer;
-    transform-origin: center;
-  }
-  
-  .image-wrapper img:hover {
-    transform: scale(1.05);
-  }
-  
-  .image-label {
-    margin-top: 10px;
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--text-color);
-    padding-left: 4px;
-    font-family: "Open Sauce one Medium";
-    opacity: 0;
-    transition: all 0.3s ease;
+  width: 100%;
+  height: 30vh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-color);
+  transition: background-color 0.3s ease;
+}
+
+#scroller {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  overflow-x: scroll;
+  scroll-behavior: auto;
+  scrollbar-width: none;
+}
+
+#scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.image-wrapper {
+  width: 300px;
+  flex-shrink: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.4s ease-in-out;
+  cursor: pointer;
+  transform-origin: center;
+}
+
+.image-wrapper img:hover {
+  transform: scale(1.05);
+}
+
+.image-label {
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-color);
+  padding-left: 4px;
+  font-family: "Open Sauce one Medium";
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.image-wrapper:hover .image-label {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  #TabsContainer {
+    height: auto;
+    padding: 20px 10px;
   }
 
-  .image-wrapper:hover .image-label{
-    opacity: 1;
+  #scroller {
+    gap: 20px;
+    padding-bottom: 10px;
   }
+
+  .image-wrapper {
+    width: 220px;
+  }
+
+  .image-wrapper img {
+    height: 150px;
+  }
+
+  .image-label {
+    font-size: 11px;
+    opacity: 1; /* Always visible on mobile */
+  }
+}
