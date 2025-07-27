@@ -16,6 +16,7 @@
   overflow-x: scroll;
   scroll-behavior: auto;
   scrollbar-width: none;
+  padding: 0 5vw;
 }
 
 #scroller::-webkit-scrollbar {
@@ -59,23 +60,25 @@
   opacity: 1;
 }
 
+/* Responsive Styling for Mobile */
 @media (max-width: 768px) {
   #TabsContainer {
     height: auto;
-    padding: 20px 10px;
+    padding: 20px 0;
+    align-items: flex-start;
   }
 
   #scroller {
-    gap: 20px;
-    padding-bottom: 10px;
+    gap: 16px;
+    padding: 0 4vw 10px;
   }
 
   .image-wrapper {
-    width: 220px;
+    width: 180px;
   }
 
   .image-wrapper img {
-    height: 150px;
+    height: 120px;
   }
 
   .image-label {
