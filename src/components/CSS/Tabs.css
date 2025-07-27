@@ -1,13 +1,6 @@
 #TabsContainer {
   width: 100%;
   height: 30vh;
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  align-items: center;
-  background-color: var(--bg-color);
-  transition: background-color 0.3s ease;
-  background-color: yellow;
 }
 
 #scroller {
@@ -61,29 +54,28 @@
   opacity: 1;
 }
 
-/* Responsive Styling for Mobile */
 @media (max-width: 768px) {
   #TabsContainer {
-    height: auto;
+    height: 30vh;
     padding: 20px 0;
-    align-items: flex-start;
+    padding-top: 4%;
   }
 
   #scroller {
-    gap: 16px;
+    gap: 20px;
     padding: 0 4vw 10px;
   }
 
   .image-wrapper {
-    width: 180px;
+    width: 220px;
   }
 
   .image-wrapper img {
-    height: 120px;
+    height: 160px;
   }
 
   .image-label {
-    font-size: 11px;
-    opacity: 1; /* Always visible on mobile */
+    font-size: 13px;
+    opacity: 1;
   }
 }

@@ -20,15 +20,15 @@
   opacity: 0;
 }
 
-/* ✅ Mobile View Adjustment */
 @media (max-width: 768px) {
   #scrollDown {
     bottom: 20px;
-    right: 20px;
+    left: 20px;
     top: unset;
+    right: unset;
     margin-top: 0;
     padding-right: 0;
-    position: fixed; /* ensures it stays in bottom-right regardless of scroll */
+    position: fixed;
     z-index: 9999;
   }
 }
