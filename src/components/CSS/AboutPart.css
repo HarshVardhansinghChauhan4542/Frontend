@@ -120,8 +120,8 @@
   #VideoPart video {
     margin-top: -50px;
     margin-left: -6px;
-    height: 250px;
-    width: 250px;
+    height: 30vh;
+    width: 30vw;
   }
 
   #VideoPart h4 {
