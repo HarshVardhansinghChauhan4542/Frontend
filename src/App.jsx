@@ -1,72 +1,91 @@
-// import React, { useEffect, useRef } from 'react';
+// import React, { useEffect, useRef, useState } from 'react';
 // import LocomotiveScroll from 'locomotive-scroll';
-// import Header from './components/JSX/Header';
-// import Tabs from './components/JSX/Tabs';
-// import CursorDesign from './components/JSX/CursorDesign';
-// import AboutPart from './components/JSX/AboutPart';
-// import Scroll from './components/JSX/Scroll';
-// import LogoLoader from './components/JSX/LogoLoader';
+// import Header from './components/Home/JSX/Header';
+// import Tabs from './components/Home/JSX/Tabs';
+// import CursorDesign from './components/Home/JSX/CursorDesign';
+// import AboutPart from './components/Home/JSX/AboutPart';
+// import Scroll from './components/Home/JSX/Scroll';
+// import LogoLoader from './components/Home/JSX/LogoLoader';
 
 // const App = () => {
-//     const containerRef = useRef(null);
-//     const locomotiveRef = useRef(null);
+//   const [loading, setLoading] = useState(true);
+//   const containerRef = useRef(null);
+//   const locomotiveRef = useRef(null);
 
-//     useEffect(() => {
-//         if (containerRef.current) {
+//   useEffect(() => {
+//     const timer = setTimeout(() => {
+//       setLoading(false);
+//     }, 2500);
+
+//     return () => clearTimeout(timer);
+//   }, []);
+
+//   useEffect(() => {
+//     if (!loading && containerRef.current) {
+//       try {
+//         const timer = setTimeout(() => {
+//           if (containerRef.current && LocomotiveScroll) {
 //             locomotiveRef.current = new LocomotiveScroll({
-//                 el: containerRef.current,
+//               el: containerRef.current,
+//               smooth: true,
+//               lerp: 0.1,
+//               multiplier: 0.8,
+//               smartphone: {
 //                 smooth: true,
 //                 lerp: 0.1,
 //                 multiplier: 0.8,
-//                 smartphone: {
-//                     smooth: true,
-//                     lerp: 0.1,
-//                     multiplier: 0.8,
-//                 },
-//                 tablet: {
-//                     smooth: true,
-//                     lerp: 0.1,
-//                     multiplier: 0.8,
-//                 }
+//               },
+//               tablet: {
+//                 smooth: true,
+//                 lerp: 0.1,
+//                 multiplier: 0.8,
+//               },
 //             });
+//           }
+//         }, 100);
 
-//             // Cleanup function
-//             return () => {
-//                 if (locomotiveRef.current) {
-//                     locomotiveRef.current.destroy();
-//                 }
-//             };
-//         }
-//     }, []);
+//         return () => {
+//           clearTimeout(timer);
+//           if (locomotiveRef.current?.destroy) {
+//             locomotiveRef.current.destroy();
+//           }
+//         };
+//       } catch (error) {
+//         console.warn('Locomotive Scroll init failed:', error);
+//       }
+//     }
+//   }, [loading]);
 
-//     return (
+//   return (
+//     <>
+//       {loading ? (
+//         <LogoLoader />
+//       ) : (
 //         <>
-//             <LogoLoader />
-//             <CursorDesign />
-//             <main data-scroll-container ref={containerRef}>
-//                 <Header />
-//                 <Tabs />
-//                 <AboutPart />
-//                 <Scroll />
-//             </main>
+//           <CursorDesign />
+//           <main data-scroll-container ref={containerRef}>
+//             <Header />
+//             <Tabs />
+//             <AboutPart />
+//             <Scroll />
+//           </main>
 //         </>
-//     )
-// }
+//       )}
+//     </>
+//   );
+// };
 
 // export default App;
 
 
 
-
 import React, { useEffect, useRef, useState } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import LocomotiveScroll from 'locomotive-scroll';
-import Header from './components/JSX/Header';
-import Tabs from './components/JSX/Tabs';
-import CursorDesign from './components/JSX/CursorDesign';
-import AboutPart from './components/JSX/AboutPart';
-import Scroll from './components/JSX/Scroll';
-import LogoLoader from './components/JSX/LogoLoader';
-import { ThemeProvider } from './contexts/ThemeContext';
+
+import CursorDesign from './components/Home/JSX/CursorDesign';
+import LogoLoader from './components/Home/JSX/LogoLoader';
+import AppRoutes from './AppRoutes.jsx'; // ← import your Routes component
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -74,68 +93,47 @@ const App = () => {
   const locomotiveRef = useRef(null);
 
   useEffect(() => {
-    // Set a timeout to hide loader
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2500); // match with your CSS animation duration
-
+    }, 2500);
     return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
     if (!loading && containerRef.current) {
       try {
-        // Add a small delay to ensure DOM is ready
         const timer = setTimeout(() => {
-          if (containerRef.current && LocomotiveScroll) {
-            locomotiveRef.current = new LocomotiveScroll({
-              el: containerRef.current,
-              smooth: true,
-              lerp: 0.1,
-              multiplier: 0.8,
-              smartphone: {
-                smooth: true,
-                lerp: 0.1,
-                multiplier: 0.8,
-              },
-              tablet: {
-                smooth: true,
-                lerp: 0.1,
-                multiplier: 0.8,
-              },
-            });
-          }
+          locomotiveRef.current = new LocomotiveScroll({
+            el: containerRef.current,
+            smooth: true,
+            lerp: 0.1,
+            multiplier: 0.8,
+            smartphone: { smooth: true },
+            tablet: { smooth: true },
+          });
         }, 100);
 
         return () => {
           clearTimeout(timer);
-          if (locomotiveRef.current && typeof locomotiveRef.current.destroy === 'function') {
-            locomotiveRef.current.destroy();
-          }
+          locomotiveRef.current?.destroy?.();
         };
       } catch (error) {
-        console.warn('Locomotive Scroll initialization failed:', error);
+        console.warn('Locomotive Scroll init failed:', error);
       }
     }
   }, [loading]);
 
-  return (
-    <ThemeProvider>
-      {loading ? (
-        <LogoLoader />
-      ) : (
-        <>
-          <CursorDesign />
-          <main data-scroll-container ref={containerRef}>
-            <Header />
-            <Tabs />
-            <AboutPart />
-            <Scroll />
-          </main>
-        </>
-      )}
-    </ThemeProvider>
+  return loading ? (
+    <LogoLoader />
+  ) : (
+    <Router>
+      <CursorDesign />
+      <main data-scroll-container ref={containerRef}>
+        <AppRoutes />
+      </main>
+    </Router>
   );
 };
 
 export default App;
+

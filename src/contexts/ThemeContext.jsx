@@ -13,7 +13,7 @@ export const useTheme = () => {
 export const ThemeProvider = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  // Load theme from localStorage on component mount
+
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
@@ -27,11 +27,9 @@ export const ThemeProvider = ({ children }) => {
   const toggleTheme = () => {
     const newTheme = !isDarkMode;
     setIsDarkMode(newTheme);
-    
-    // Save to localStorage
+
     localStorage.setItem('theme', newTheme ? 'dark' : 'light');
     
-    // Update document attribute for CSS
     document.documentElement.setAttribute('data-theme', newTheme ? 'dark' : 'light');
   };
 

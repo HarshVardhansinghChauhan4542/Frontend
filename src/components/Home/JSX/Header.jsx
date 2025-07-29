@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import gsap from 'gsap';
-import { useTheme } from '../../contexts/ThemeContext';
-import '../CSS/Header.css';
+import { useTheme } from "../../../contexts/ThemeContext";
 
 const Header = () => {
   const { isDarkMode, toggleTheme } = useTheme();
