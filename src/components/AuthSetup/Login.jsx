@@ -36,10 +36,10 @@
 // export default Login;
 
 
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
-import axios from 'axios';
+import { auth } from '../../config/api';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -63,15 +63,17 @@ const Login = () => {
     setError('');
 
     try {
-      const res = await axios.post('http://localhost:3001/api/auth/login', formData);
-      console.log('Login success:', res.data);
+      const { email, password } = formData;
+      const data = await auth.login(email, password);
+      console.log('Login success:', data);
 
-      // Save token in localStorage (optional)
-      localStorage.setItem('userToken', res.data.token);
-
-      navigate('/'); // Navigate to home on success
+      // Save token in localStorage
+      if (data.token) {
+        localStorage.setItem('userToken', data.token);
+        navigate('/'); // Navigate to home on success
+      }
     } catch (err) {
-      setError(err.response?.data?.message || 'Login failed');
+      setError(err.message || 'Login failed. Please check your credentials.');
     }
   };
 
