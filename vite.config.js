@@ -16,6 +16,13 @@ export default defineConfig({
   server: {
     // Enable CORS for development
     cors: true,
+    // Handle SPA fallback for client-side routing
+    historyApiFallback: true,
+    // Force Vite to use WebSocket for HMR
+    hmr: {
+      protocol: 'ws',
+      host: 'localhost',
+    },
   },
   optimizeDeps: {
     esbuildOptions: {
@@ -42,13 +49,8 @@ export default defineConfig({
     // Enable better error messages
     minify: 'esbuild',
     sourcemap: true,
-  },
-  server: {
-    // Force Vite to use WebSocket for HMR
-    hmr: {
-      protocol: 'ws',
-      host: 'localhost',
-    },
+    // Configure the base path for production
+    emptyOutDir: true,
   },
 });
 
