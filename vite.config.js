@@ -1,9 +1,22 @@
 // vite.config.js
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import path from 'path';
 
 export default defineConfig({
   plugins: [react()],
+  base: '/', // Ensure assets are served from the root
+  publicDir: 'public', // Specify the public directory
+  resolve: {
+    alias: {
+      // Set up path aliases for easier imports
+      '@': path.resolve(__dirname, './src'),
+    },
+  },
+  server: {
+    // Enable CORS for development
+    cors: true,
+  },
   optimizeDeps: {
     esbuildOptions: {
       // Enable esbuild's support for BigInt
