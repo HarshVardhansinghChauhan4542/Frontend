@@ -54,7 +54,7 @@
   opacity: 1;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   #TabsContainer {
     height: 30vh;
     padding: 20px 0;

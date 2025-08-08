@@ -45,7 +45,7 @@ body {
   /* min-height: auto; */
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   * {
     margin: 0;
     padding: 0;

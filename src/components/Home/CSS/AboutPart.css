@@ -111,7 +111,7 @@
 
 
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   #aboutContainer {
     position: absolute;
     margin-top: 0;

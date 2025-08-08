@@ -1,27 +1,46 @@
 #headerContainer {
   width: 100%;
-  height: 10vh;
+  min-height: 80px; /* Minimum height for better touch targets */
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: var(--header-bg);
-  padding: 0 2vw;
+  padding: 0.5rem 2vw;
   box-sizing: border-box;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  flex-wrap: nowrap; /* Prevent wrapping */
+  position: relative;
 }
 
 
+#logoImg {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0; /* Prevent logo from shrinking */
+}
+
 #logoImg img {
-  height: 135px;
+  height: 75px; /* Further reduced logo size */
+  width: auto;
+  transition: height 0.3s ease;
 }
 
 /* Navigation Links Container */
 #navLinks {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 8px; /* Reduced gap between items */
   flex-wrap: nowrap;
   transition: all 0.3s ease-in-out;
+  overflow-x: auto; /* Allow horizontal scrolling if needed */
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+  padding: 0 5px;
+  white-space: nowrap;
+}
+
+#navLinks::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome/Safari */
 }
 
 /* Mobile Controls Container */
@@ -147,7 +166,7 @@
   transform-origin: center;
 }
 
-/* Hamburger Menu Animation */
+
 .hamburger-menu.open .bar:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
@@ -160,22 +179,25 @@
   transform: translateY(-7px) rotate(-45deg);
 }
 
-
+/* Navigation Links */
 #navLinks a {
   text-decoration: none;
-  font-size: 1em;
-  font-weight: 100;
+  font-size: 0.9em;
+  font-weight: 500;
   font-family: "Open Sauce one Medium";
-  padding-right: 30px;
-  transition: all 0.3s ease-in-out;
+  padding: 6px 10px;
   color: var(--link-color);
   white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
 }
 
 #navLinks a:hover {
   color: var(--link-hover);
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
 }
-
 
 #toggleBtn {
   width: 20px;
@@ -229,9 +251,19 @@
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
+  #headerContainer {
+    padding: 0.5rem 10px;
+    min-height: 70px;
+  }
+  
   #logoImg img {
-    height: 70px;
+    height: 60px;
+  }
+  
+  #navLinks {
+    gap: 10px;
+    padding: 0 5px;
   }
 
   /* Show mobile controls */

@@ -190,7 +190,7 @@ const Header = () => {
   }, []);
 
   return (
-    <div>
+    <div id="headerContainer">
       <div id="logoImg" className="header-anim">
         <Link to="/">
           <img src="/KGPnow.png" alt="logo" />

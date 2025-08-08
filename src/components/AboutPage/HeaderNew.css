@@ -145,7 +145,7 @@
   }
 
   /* Mobile View */
-  @media (max-width: 768px) {
+  @media (max-width: 480px) {
     #logoImg img {
       height: 70px;
     }
@@ -344,7 +344,7 @@ html, body {
 }
 
   /* Ensure theme toggle is visible on mobile */
-  @media (max-width: 768px) {
+  @media (max-width: 480px) {
     .theme-toggle-button {
       margin: 0;
       padding: 8px 16px;

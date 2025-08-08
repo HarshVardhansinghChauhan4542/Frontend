@@ -207,7 +207,7 @@
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .gallery-header {
     flex-direction: column;
     align-items: flex-start;
@@ -221,12 +221,10 @@
   }
   
   .events-grid {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-}
-
-@media (max-width: 480px) {
+  
   .event-gallery {
     padding: 1.5rem 1rem;
   }
