@@ -190,7 +190,7 @@ const Header = () => {
   }, []);
 
   return (
-    <div id="headerContainer" >
+    <div id="headerContainer"  data-scroll-container data-scroll-section>
       <div id="logoImg" className="header-anim">
         <Link to="/">
           <img src="/KGPnow.png" alt="logo" />
