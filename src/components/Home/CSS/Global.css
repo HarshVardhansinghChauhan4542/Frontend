@@ -59,6 +59,8 @@ body {
   }
 
   [data-scroll-container] {
+    width: 100%;
+    min-height: 100vh;
     padding: 0;
     background-color: var(--bg-color);
     color: var(--text-color);
