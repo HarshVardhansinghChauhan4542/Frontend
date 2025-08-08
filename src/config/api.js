@@ -1,9 +1,9 @@
 // API base URL
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:3001';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001';
 
 // Helper function to make API requests
 const apiRequest = async (endpoint, method = 'GET', data = null) => {
-  const url = `${API_BASE_URL}${endpoint}`;
+  let url = `${API_BASE_URL}${endpoint}`;
   const config = {
     method,
     headers: {
@@ -74,7 +74,10 @@ export const eventsApi = {
     apiRequest(`/api/events/${id}`, 'DELETE')
 };
 
+export const auth = authApi;
+export const events = eventsApi;
+
 export default {
-  auth: authApi,
-  events: eventsApi
+  auth,
+  events
 };

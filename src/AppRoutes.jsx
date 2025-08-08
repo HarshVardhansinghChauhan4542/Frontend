@@ -111,13 +111,13 @@ const AppRoutes = () => {
       />
 
       {/* Event Details Page (Public/Protected as needed) */}
-{/*       <Route path="/events/details/:id" element={<EventDetails />} /> */}
+      <Route path="/events/details/:id" element={<EventDetails />} />
 
       {/* Auth Pages */}
-{/*       <Route path="/login" element={<Login />} />
+      <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/verify-otp" element={<OtpVerification />} />
-      <Route path="/forgot-password" element={<ForgotPassword />} /> */}
+      <Route path="/forgot-password" element={<ForgotPassword />} />
     </Routes>
   );
 };
