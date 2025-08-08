@@ -8,6 +8,18 @@
   transition: background-color 0.3s ease;
 }
 
+/* Hide cursor circles on mobile devices */
+@media (max-width: 768px) {
+  .circle {
+    display: none !important;
+  }
+  
+  /* Restore default cursor on mobile */
+  html, a, button, input, textarea, [role="button"], [role="tab"] {
+    cursor: auto !important;
+  }
+}
+
 /* Hide default cursor */
 html {
   cursor: none;
