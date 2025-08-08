@@ -42,9 +42,7 @@ const AppRoutes = () => {
       <Route
         path="/"
         element={
-{/*           <PrivateRoute> */}
             <Home />
-          // </PrivateRoute>
         }
       />
 
@@ -52,9 +50,7 @@ const AppRoutes = () => {
       <Route
         path="/about"
         element={
-{/*           <ProtectedRoute> */}
             <About />
-          // </ProtectedRoute>
         }
       />
 
@@ -62,73 +58,55 @@ const AppRoutes = () => {
       <Route
         path="/events/amazon-forest"
         element={
-{/*           <ProtectedRoute> */}
             <AmazonForest />
-          // </ProtectedRoute>
         }
       />
       <Route
         path="/events/cherry-blossom"
         element={
-{/*           <ProtectedRoute> */}
             <CherryBlossom />
-          // </ProtectedRoute>
         }
       />
       <Route
         path="/events/autumn-leaves"
         element={
-{/*           <ProtectedRoute> */}
             <AutumnLeaves />
-{/*           </ProtectedRoute> */}
         }
       />
       <Route
         path="/events/fog-forest"
         element={
-{/*           <ProtectedRoute> */}
             <FogForest />
-          // </ProtectedRoute>
         }
       />
       <Route
         path="/events/mountains"
         element={
-{/*           <ProtectedRoute> */}
             <Mountains />
-          // </ProtectedRoute>
         }
       />
       <Route
         path="/events/waterfall"
         element={
-{/*           <ProtectedRoute> */}
             <WaterFall />
-          // </ProtectedRoute>
         }
       />
       <Route
         path="/events/sunset"
         element={
-{/*           <ProtectedRoute> */}
             <Sunset />
-          // </ProtectedRoute>
         }
       />
       <Route
         path="/events/winter-forest"
         element={
-{/*           <ProtectedRoute> */}
             <WinterForest />
-          // </ProtectedRoute>
         }
       />
       <Route
         path="/events/red-oak"
         element={
-{/*           <ProtectedRoute> */}
             <RedOak />
-          // </ProtectedRoute>
         }
       />
 
